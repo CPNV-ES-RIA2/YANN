@@ -1,0 +1,98 @@
+.home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .languageSelector {
+    position: relative;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .query {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    background-color: transparent;
+    min-height: 600px;
+
+    .left {
+      width: 50%;
+      background-color: transparent;
+      flex: 1;
+      padding: 20px;
+    }
+
+    .right {
+      width: 50%;
+      flex: 1;
+      padding: 20px;
+      flex-direction: column;
+      display: flex;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: wihte;
+        outline-color: green;
+        margin-bottom: 30px;
+      }
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: green;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .results {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    flex-direction: column;
+    width: 80%;
+    min-height: 300px;
+    padding: 20px;
+
+    table {
+      width: 100%;
+    }
+
+    table,
+    th,
+    td {
+      color: black;
+      border: 1px solid rgb(141, 141, 141);
+    }
+
+    th,
+    td {
+      padding: 10px; /* Espacement à l'intérieur des cellules */
+      text-align: left; /* Alignement du texte à gauche */
+    }
+
+    thead th {
+      background-color: black; /* Couleur de fond de l'en-tête (vert dans cet exemple) */
+      color: white; /* Couleur du texte de l'en-tête */
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f2f2f2; /* Couleur de fond pour les lignes impaires, pour améliorer la lisibilité */
+    }
+  }
+}
