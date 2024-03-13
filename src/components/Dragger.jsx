@@ -1,20 +1,38 @@
-import { InboxOutlined } from "@ant-design/icons";
-import { Upload } from "antd";
-import { useTranslation } from "react-i18next";
-
-const { Dragger } = Upload;
+import React, { useState } from "react";
+import "./dragger.scss";
 
 function DragAndDrop() {
-  const { t } = useTranslation();
+  const fileInputRef = React.createRef();
+  const [fileUri, setFileUri] = useState(null);
+
+  const handleUpload = (e) => {
+    const file = e.target.files[0];
+    const localPath = URL.createObjectURL(file);
+    setFileUri(localPath);
+  };
+
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
 
   return (
-    <Dragger accept="images/*" maxCount={1}>
-      <p className="ant-upload-drag-icon">
-        <InboxOutlined />
-      </p>
-      <p className="ant-upload-text">{t("dragger.uploadText")}</p>
-      <p className="ant-upload-hint">{t("dragger.uploadHint")}</p>
-    </Dragger>
+    <div onClick={handleClick} className="dragger-container">
+      <input
+        type="file"
+        name="file"
+        ref={fileInputRef}
+        onChange={handleUpload}
+        style={{ display: "none" }}
+      />
+      {!fileUri && <span>Click to Upload an Image</span>}
+      {fileUri && (
+        <img
+          src={fileUri}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          alt="Uploaded content"
+        />
+      )}
+    </div>
   );
 }
 
