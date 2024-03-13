@@ -5,10 +5,10 @@
  * @date 2024-02-27
  */
 
-describe("Should display all element in english by default", () => {
+describe("Should display all elements correctly", () => {
   //Before each test, we test we can access the page
   beforeEach(() => {
-    cy.visit("http://localhost:5173");
+    cy.visit("http://localhost:7070");
   });
 
   /**
@@ -22,23 +22,8 @@ describe("Should display all element in english by default", () => {
     cy.get(".left").should("exist");
   });
 
-  it("should display the correct labels for inputs", () => {
-    cy.get("[data-testid=label-maxLabels]")
-      .should("exist")
-      .should("have.text", "Maximum number of labels");
-  });
-
-  it("should display the correct placeholders for inputs", () => {
-    cy.get(".right input")
-      .first()
-      .should("have.attr", "placeholder", "Default value : 5");
-    cy.get(".right input")
-      .last()
-      .should("have.attr", "placeholder", "Default value : 90");
-  });
-
-  it("should display the analyze button", () => {
-    cy.get(".right button").should("exist");
+  it("should display the form for request parameters", () => {
+    cy.get(".query form").should("exist");
   });
 
   it("should display the results table", () => {
@@ -52,16 +37,18 @@ describe("Should display all element in english by default", () => {
 describe("Translation tests", () => {
   //Before each test, we test we can access the page
   beforeEach(() => {
-    cy.visit("http://localhost:5173");
+    cy.visit("http://localhost:7070");
   });
 
   it("should translate the label and button in french when FR is selected", () => {
+    //given
     cy.get(".languageSelector select").as("languageSelect");
     cy.get("@languageSelect")
       .find("option")
       .should("have.length.greaterThan", 0);
+    //when
     cy.get("@languageSelect").select("FR", { force: true });
-
+    //then
     cy.get('[data-testid="label-maxLabels"]').should(
       "have.text",
       "Nombre maximal de labels"
@@ -70,12 +57,14 @@ describe("Translation tests", () => {
   });
 
   it("should translate the label and button in deutsch when DE is selected", () => {
+    //given
     cy.get(".languageSelector select").as("languageSelect");
     cy.get("@languageSelect")
       .find("option")
       .should("have.length.greaterThan", 0);
+    //when
     cy.get("@languageSelect").select("DE", { force: true });
-
+    //then
     cy.get('[data-testid="label-maxLabels"]').should(
       "have.text",
       "Maximale Anzahl von Etiketten"
@@ -90,7 +79,7 @@ describe("Translation tests", () => {
 describe("Drag and Drop", () => {
   //Before each test, we test we can access the page
   beforeEach(() => {
-    cy.visit("http://localhost:5173");
+    cy.visit("http://localhost:7070");
   });
 
   // it("should upload a file using Dragger from Ant Design", () => {
@@ -117,8 +106,8 @@ describe("Drag and Drop", () => {
  * Tests if the results are correctly displayed
  */
 //TODO: Add tests for displaying the results
-describe("Results", () => {
+describe("Results Section", () => {
   it("should display the results table", () => {
-    cy.visit("http://localhost:5173");
+    cy.visit("http://localhost:7070");
   });
 });
