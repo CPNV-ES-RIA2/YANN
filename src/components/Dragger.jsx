@@ -21,6 +21,7 @@ function DragAndDrop() {
         type="file"
         name="file"
         ref={fileInputRef}
+        required={true}
         onChange={handleUpload}
         style={{ display: "none" }}
       />

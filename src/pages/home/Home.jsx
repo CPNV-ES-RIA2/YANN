@@ -1,6 +1,5 @@
-import { Form } from "antd";
+import { Form, Spin } from "antd";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import DragAndDrop from "../../components/Dragger";
 import LanguageSelector from "../../components/LanguageSelector";
 import QueryParameters from "../../components/QueryParameters";
@@ -8,14 +7,14 @@ import ResultsTable from "../../components/Results";
 import "./home.scss";
 
 const Home = () => {
-  const { t, i18n } = useTranslation();
-  const [message, setMessage] = useState("");
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const dataObjectUrl = import.meta.env.VITE_DATAOBJECT_API_URL;
   const labelDetectorUrl = import.meta.env.VITE_LABELDETECTOR_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData(e.target);
     formData.append("filename", formData.get("file").name);
@@ -31,7 +30,6 @@ const Home = () => {
       }
 
       const uploadData = await uploadResponse.json();
-      setMessage(uploadData.message);
 
       const getUrlResponse = await fetch(
         `${dataObjectUrl}publish?remoteFullPath=${encodeURIComponent(
@@ -67,10 +65,17 @@ const Home = () => {
     } catch (error) {
       console.error(error);
     }
+
+    setLoading(false);
   };
 
   return (
     <div className="home">
+      {loading && (
+        <div className="loading-overlay">
+          <Spin size="large" />
+        </div>
+      )}
       <LanguageSelector />
       <div className="query">
         <Form onSubmitCapture={handleSubmit} encType="multipart/form-data">
