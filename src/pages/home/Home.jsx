@@ -10,7 +10,7 @@ import "./home.scss";
 const Home = () => {
   const { t, i18n } = useTranslation();
   const [message, setMessage] = useState("");
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState([]);
   const dataObjectUrl = import.meta.env.VITE_DATAOBJECT_API_URL;
   const labelDetectorUrl = import.meta.env.VITE_LABELDETECTOR_API_URL;
 
@@ -79,16 +79,11 @@ const Home = () => {
           </div>
           <div className="right">
             <QueryParameters />
-            {message && (
-              <div className="response">
-                <p>{message}</p>
-              </div>
-            )}
           </div>
         </Form>
       </div>
       <div className="results">
-        <ResultsTable />
+        <ResultsTable labels={results} />
       </div>
     </div>
   );
