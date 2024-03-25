@@ -5,7 +5,7 @@
  * @date 2024-02-27
  */
 
-describe("Should display all elements correctly", () => {
+describe("Display all elements", () => {
   //Before each test, we test we can access the page
   beforeEach(() => {
     cy.visit("http://localhost:7070");
@@ -34,7 +34,7 @@ describe("Should display all elements correctly", () => {
 /**
  * Tests if the page is correctly translated
  */
-describe("Translation tests", () => {
+describe("Translation", () => {
   //Before each test, we test we can access the page
   beforeEach(() => {
     cy.visit("http://localhost:7070");
@@ -74,40 +74,29 @@ describe("Translation tests", () => {
 });
 
 /**
- * Tests if the drag and drop (upload) component works correctly
+ * Tests if the form is correctly working
  */
-describe("Drag and Drop", () => {
-  //Before each test, we test we can access the page
-  beforeEach(() => {
-    cy.visit("http://localhost:7070");
-  });
+// describe("Form", () => {
+//   it("should submits data", async () => {
+//     // given
+//     const maxLabels = "5";
+//     const minConfidence = "90";
+//     const handleSubmit = cy.spy();
 
-  // it("should upload a file using Dragger from Ant Design", () => {
-  //   cy.fixture("image.png", "base64").then((fileContent) => {
-  //     cy.get(".ant-upload input").attachFile(
-  //       {
-  //         fileContent,
-  //         fileName: "image.png",
-  //         mimeType: "image/png",
-  //         encoding: "base64",
-  //       },
-  //       {
-  //         subjectType: "drag-n-drop",
-  //       }
-  //     );
-  //   });
-  //   cy.get(".ant-upload-list-item-container", { timeout: 10000 }).should(
-  //     "exist"
-  //   );
-  // });
-});
+//     // when
+//     const { getByDisplayValue, getByRole } = render(
+//       <RequestForm onSubmit={handleSubmit} />
+//     );
+//     const minConfidenceLevelInput = getByDisplayValue(minConfidence);
+//     const maxLabelsInput = getByDisplayValue(maxLabels);
+//     const analyseButton = getByRole("button");
+//     cy.get(maxLabelsInput).clear();
+//     cy.get(maxLabelsInput).type(maxLabels);
+//     cy.get(minConfidenceLevelInput).clear();
+//     cy.get(minConfidenceLevelInput).type(minConfidence);
+//     cy.get(analyseButton).click();
 
-/**
- * Tests if the results are correctly displayed
- */
-//TODO: Add tests for displaying the results
-describe("Results Section", () => {
-  it("should display the results table", () => {
-    cy.visit("http://localhost:7070");
-  });
-});
+//     // then
+//     expect(handleSubmit).to.be.calledOnce;
+//   });
+// });

@@ -1,3 +1,4 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 function QueryParameters() {
@@ -22,7 +23,7 @@ function QueryParameters() {
         min={0}
         defaultValue={90}
       />
-      <button>{t("home.analyze")}</button>
+      <button className="btn-analyze">{t("home.analyze")}</button>
     </>
   );
 }

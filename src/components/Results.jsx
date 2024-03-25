@@ -13,7 +13,7 @@ function ResultsTable({ labels }) {
       </thead>
       <tbody>
         {labels?.map((label) => (
-          <tr key={label.name}>
+          <tr key={label.name} className="article">
             <td>{label.name}</td>
             <td>{label.score}</td>
           </tr>

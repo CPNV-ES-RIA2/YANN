@@ -1,8 +1,7 @@
-import { Form, Spin } from "antd";
+import { Spin } from "antd";
 import { useState } from "react";
-import DragAndDrop from "../../components/Dragger";
 import LanguageSelector from "../../components/LanguageSelector";
-import QueryParameters from "../../components/QueryParameters";
+import RequestForm from "../../components/RequestForm";
 import ResultsTable from "../../components/Results";
 import "./home.scss";
 
@@ -12,11 +11,9 @@ const Home = () => {
   const dataObjectUrl = import.meta.env.VITE_DATAOBJECT_API_URL;
   const labelDetectorUrl = import.meta.env.VITE_LABELDETECTOR_API_URL;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleFormSubmit = async (formData) => {
     setLoading(true);
 
-    const formData = new FormData(e.target);
     formData.append("filename", formData.get("file").name);
 
     try {
@@ -78,14 +75,7 @@ const Home = () => {
       )}
       <LanguageSelector />
       <div className="query">
-        <Form onSubmitCapture={handleSubmit} encType="multipart/form-data">
-          <div className="left">
-            <DragAndDrop />
-          </div>
-          <div className="right">
-            <QueryParameters />
-          </div>
-        </Form>
+        <RequestForm onSubmit={handleFormSubmit} />
       </div>
       <div className="results">
         <ResultsTable labels={results} />

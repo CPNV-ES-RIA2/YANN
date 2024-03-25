@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./dragger.scss";
+//import "./dragger.css";
 
 function DragAndDrop() {
   const fileInputRef = React.createRef();
@@ -16,7 +16,24 @@ function DragAndDrop() {
   };
 
   return (
-    <div onClick={handleClick} className="dragger-container">
+    <div
+      onClick={handleClick}
+      className="dragger-container"
+      style={{
+        display: "flex",
+        height: "100%",
+        width: "100%",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "2px dashed #aaa",
+        borderRadius: "4px",
+        padding: "20px",
+        backgroundColor: "#f3f3f3",
+        color: "#aaa",
+        cursor: "pointer",
+      }}
+    >
       <input
         type="file"
         name="file"
