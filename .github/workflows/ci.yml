@@ -13,8 +13,8 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Start the app
-        run: npm run start
+      - name: Install start-server-and-test
+        run: npm install start-server-and-test
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Start the app and run tests
+        run: npx start-server-and-test start http://localhost:7070 cypress:run
