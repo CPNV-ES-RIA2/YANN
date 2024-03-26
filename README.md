@@ -11,6 +11,7 @@ It's a RIA developed with React that enables users to upload an image and receiv
 List all dependencies and their version needed by the project as :
 
 - VSCode or another text editor
+- Docker Daemon
 
 ### Configuration
 
@@ -24,11 +25,39 @@ VITE_DATAOBJECT_API_URL=http://localhost:8222/api/v1/dataobject/
 VITE_BUCKET_URI=gs://your.test.bucket/
 ```
 
+## Deployment with Docker
 
+To run this project, you must have Docker Daemon installed.
 
-## Deployment
+#### Dev
 
-### On dev environment
+Go to the main folder.
+
+Execute this command to build our image.
+```
+docker build --target development -t "frontend:dev" .
+```
+
+Execute this command to run the container
+```
+docker run --name frontend-dev -p 7070:7070 frontend:dev
+```
+
+#### Prod
+
+Go to the main folder.
+
+Execute this command to build our image.
+```
+docker build --target production -t "frontend:prod" .
+```
+
+Execute this command to run the container
+```
+docker run --name frontend-prod -p 7070:7070 frontend:prod
+```
+
+### Deployment in local
 
 #### Dependencies
 
