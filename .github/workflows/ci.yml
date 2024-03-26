@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: Frontend CI
 on: push
 jobs:
   cypress-run:
@@ -6,15 +6,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install dependencies
         run: npm install
-
-      - name: Build the app
-        run: npm run build
-
-      - name: Install start-server-and-test
-        run: npm install start-server-and-test
-
-      - name: Start the app and run tests
-        run: npx start-server-and-test start http://localhost:7070 cypress:run
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run start
