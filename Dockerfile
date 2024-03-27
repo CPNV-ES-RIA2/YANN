@@ -9,11 +9,9 @@ EXPOSE 7070
 CMD [ "npm", "run", "dev" ]
 
 # STAGE : Production
-FROM node:20-alpine AS production
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-CMD ["npm", "run", "build"]
-COPY --from=development /app/dist /app/dist
+FROM nginx:alpine as production
+COPY nginx.conf /etc/nginx/nginx.conf
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=development /app/dist /usr/share/nginx/html
 EXPOSE 7070
-CMD ["npm", "run", "start"]
+CMD ["nginx", "-g", "daemon off;"]
