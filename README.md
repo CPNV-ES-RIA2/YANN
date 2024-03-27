@@ -103,7 +103,7 @@ npm run build && npm run start
 ├── cypress
 │   ├── downloads
 │   ├── e2e
-│   │   ├── UITests.cy.js																			// frontend tests
+│   │   ├── UITests.cy.js								// frontend tests
 │   │   └── UITests.cy.test.js
 │   ├── fixtures
 │   │   ├── image.png
@@ -113,14 +113,14 @@ npm run build && npm run start
 │       ├── commands.js
 │       └── e2e.js
 ├── cypress.config.js
-├── docs																											// documentation
+├── docs																// documentation
 │   ├── architecture
 │   │   └── architecture.drawio.png
 │   └── mockups
 │       └── V1.png
 ├── index.html
 ├── package-lock.json
-├── package.json																							// dependencies
+├── package.json												// dependencies
 ├── postcss.config.js
 ├── public
 │   └── vite.svg
@@ -129,18 +129,18 @@ npm run build && npm run start
 │   ├── assets
 │   │   └── css
 │   │       └── global.css
-│   ├── components																						// components
-│   │   ├── Dragger.jsx																				// drag and drop component
-│   │   ├── LanguageSelector.jsx															// language selector component
-│   │   ├── QueryParameters.jsx																// query parameters component
-│   │   ├── RequestForm.jsx																		// request form component
-│   │   └── Results.jsx																				// results component
+│   ├── components											// components
+│   │   ├── Dragger.jsx									// drag and drop component
+│   │   ├── LanguageSelector.jsx				// language selector component
+│   │   ├── QueryParameters.jsx					// query parameters component
+│   │   ├── RequestForm.jsx							// request form component
+│   │   └── Results.jsx									// results component
 │   ├── locales
-│   │   └── i18n.js																						// translation
+│   │   └── i18n.js											// translation
 │   ├── main.jsx
 │   └── pages
 │       └── home
-│           ├── Home.jsx																			// view
+│           ├── Home.jsx								// view
 │           └── home.scss
 ├── tailwind.config.js
 └── vite.config.js
