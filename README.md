@@ -60,7 +60,7 @@ Execute this command to run the container
 docker run --name frontend-prod -p 7070:7070 frontend:prod
 ```
 
-## Deployment with Docker
+## Deployment in local
 
 ### Dev
 
