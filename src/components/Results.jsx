@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-function ResultsTable() {
+function ResultsTable({ labels }) {
   const { t } = useTranslation();
 
   return (
@@ -12,14 +12,12 @@ function ResultsTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Label 1</td>
-          <td>Value 1</td>
-        </tr>
-        <tr>
-          <td>Label 2</td>
-          <td>Value 2</td>
-        </tr>
+        {labels?.map((label) => (
+          <tr key={label.name} className="article">
+            <td>{label.name}</td>
+            <td>{label.score}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
