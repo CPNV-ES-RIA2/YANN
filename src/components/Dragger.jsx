@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import "./dragger.css";
 
 function DragAndDrop() {
   const fileInputRef = React.createRef();
