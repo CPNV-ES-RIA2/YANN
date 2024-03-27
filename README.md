@@ -12,6 +12,7 @@ List all dependencies and their version needed by the project as :
 
 - VSCode or another text editor
 - Docker Daemon
+- [RIA Backend is running](https://github.com/menoudyann/RIA2-Backend)
 
 ### Configuration
 
@@ -24,6 +25,8 @@ VITE_LABELDETECTOR_API_URL=http://localhost:8222/api/v1/labeldetector/
 VITE_DATAOBJECT_API_URL=http://localhost:8222/api/v1/dataobject/
 VITE_BUCKET_URI=gs://your.test.bucket/
 ```
+
+Normally, you just have to change the VITE_BUCKET_URI if you use my [RIA2 Backend](https://github.com/menoudyann/RIA2-Backend.git).
 
 ## Deployment with Docker
 
