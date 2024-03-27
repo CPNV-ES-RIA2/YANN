@@ -60,7 +60,9 @@ Execute this command to run the container
 docker run --name frontend-prod -p 7070:7070 frontend:prod
 ```
 
-### Deployment in local
+## Deployment with Docker
+
+### Dev
 
 #### Dependencies
 
@@ -76,7 +78,7 @@ npm i
 npm run dev
 ```
 
-### On prod environment
+### Prod
 
 #### Dependencies
 
